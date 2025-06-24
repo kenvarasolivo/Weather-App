@@ -1,0 +1,39 @@
+/* from fonts.google.com */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    color: white;
+}
+
+body {
+    background:url('assets/bg.jpg');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background:rgb(0,0,0,0.15);
+    backdrop-filter: blur(15px);
+}
+
+.main-container {
+    width: 300px;
+    height: 496px;
+    z-index: 1;
+    background-color: linear-gradient(to top, rgb(0,0,0,0.15), rgb(255,255,255,0.15));
+    border-radius: 12px;
+    backdrop-filter: blur(100px);
+}
