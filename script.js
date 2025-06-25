@@ -5,7 +5,13 @@ const notFoundSection = document.querySelector('.not-found')
 const SearchCitySection = document.querySelector('.search-city')
 const weatherInfoSection =  document.querySelector('.weather-info')
 
-
+const countryTxt = document.querySelector('.country-txt')
+const tempTxt = document.querySelector('.temp-txt')
+const conditionTxt = document.querySelector('.condition-txt')
+const humidityValueTxt = document.querySelector('.humidity-value-txt')
+const windValueTxt = document.querySelector('.wind-value-txt')
+const weatherSummaryImg = document.querySelector('.weather-summary-img')
+const currentDateTxt = document.querySelector('.current-date-txt')
 
 const apiKey = '94f81ee2247c07f061c1fbda7d744413'
 
@@ -41,15 +47,23 @@ async function updateWeatherInfo(city){
     }
     console.log(weatherData)
 
-    /* const {
+    const {
         name: country,
-        main: [{ temp, humidity }],
+        main: { temp, humidity },
         weather: [{ id, main }],
         wind: {speed}
-    } = weatherData */
+    } = weatherData
+
+    countryTxt.textContent = country
+    tempTxt.textContent = Math.round(temp) + ' °C'
+    conditionTxt.textContent = main
+    humidityValueTxt.textContent = humidity + '%'
+    windValueTxt.textContent = speed + ' M/s'
+
+    /* weatherSummaryImg.src = `assets/weather/${getWeatherIcon()}` */
 
     showDisplaySection(weatherInfoSection)
-}
+}   
 
 function showDisplaySection(section) {
     [weatherInfoSection, SearchCitySection, notFoundSection]
