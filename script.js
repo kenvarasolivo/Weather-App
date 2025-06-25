@@ -50,6 +50,16 @@ function getWeatherIcon(id){
     else return 'clouds.svg'
 }
 
+function getBackgroundImage(id) {
+    if (id <= 232) return 'thunderstorm.jpg'
+    if (id <= 321) return 'drizzle.jpg'
+    if (id <= 531) return 'rain.jpg'
+    if (id <= 622) return 'snow.jpg'
+    if (id <= 781) return 'atmosphere.jpg'
+    if (id <= 800) return 'clear.jpg'
+    else return 'clouds.jpg'
+}
+
 function getCurrentDate(){
     const currentDate = new Date()
     const options = {
@@ -83,6 +93,8 @@ async function updateWeatherInfo(city){
 
     currentDateTxt.textContent = getCurrentDate()
     weatherSummaryImg.src = `assets/weather/${getWeatherIcon(id)}`
+    const bgImage = getBackgroundImage(id)
+    document.body.style.backgroundImage = `url('assets/bg/${bgImage}')`
 
     await updateForecastsInfo(city)
     showDisplaySection(weatherInfoSection)
